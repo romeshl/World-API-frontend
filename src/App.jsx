@@ -12,7 +12,7 @@ function App() {
   
   async function fetchData() {
     try {
-      const response = await ((await fetch('https://world-api-backend.azurewebsites.net/')).json());
+      const response = await ((await fetch('http://localhost:4000')).json());
       setData(response);
     }
     catch (error) {
