@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
   
   useEffect(() => {
     fetchData();
@@ -17,19 +17,18 @@ function App() {
     }
     catch (error) {
       console.log("Error occured :" + error);
-      setData({});
+      setData([]);
     }
   }
-
 
   return (
     <div className='my-[100px] mx-auto w-[500px] p-[20px] border font-mono'>
       <h1 className="text-red-500 text-5xl underline">Countries</h1>
-      { Object.entries(data).map((item, index) => {
+      {data.map((item, index) => {
         return (
           <div key={index} className="flex gap-3">
             <h1>{index + 1}</h1>
-            <p>{item[1]['Name']}</p>
+            <p>{item.Name}</p>
            </div>
         )
       })}
